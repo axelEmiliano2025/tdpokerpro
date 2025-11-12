@@ -1,0 +1,90 @@
+{
+    "compilerOptions": {
+        // Language and Environment
+        "target": "ES2022",
+        "lib": [
+            "ES2022"
+        ],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        // Emit
+        "outDir": "./dist",
+        "rootDir": "./",
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "removeComments": false,
+        "noEmit": false,
+        "incremental": true,
+        "tsBuildInfoFile": "./dist/.tsbuildinfo",
+        // Type Checking
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedIndexedAccess": true,
+        "noImplicitOverride": true,
+        "noPropertyAccessFromIndexSignature": false,
+        // Modules
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        // Experimental
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        // Advanced
+        "skipLibCheck": true,
+        "allowUnusedLabels": false,
+        "allowUnreachableCode": false,
+        // Paths (para workspaces)
+        "baseUrl": ".",
+        "paths": {
+            "@tdpokerpro/shared-types": [
+                "packages/shared-types/src"
+            ],
+            "@tdpokerpro/shared-utils": [
+                "packages/shared-utils/src"
+            ],
+            "@tdpokerpro/api-gateway": [
+                "packages/api-gateway/src"
+            ],
+            "@tdpokerpro/auth-service": [
+                "packages/auth-service/src"
+            ],
+            "@tdpokerpro/game-engine-service": [
+                "packages/game-engine-service/src"
+            ],
+            "@tdpokerpro/social-service": [
+                "packages/social-service/src"
+            ],
+            "@tdpokerpro/payment-service": [
+                "packages/payment-service/src"
+            ],
+            "@tdpokerpro/notification-service": [
+                "packages/notification-service/src"
+            ]
+        }
+    },
+    "include": [
+        "packages/*/src/**/*",
+        "packages/*/tests/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "build",
+        "**/*.spec.ts",
+        "**/*.test.ts",
+        "coverage"
+    ]
+}
