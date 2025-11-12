@@ -4,7 +4,25 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "composite": true,
-        "tsBuildInfoFile": "./dist/.tsbuildinfo"
+        "tsBuildInfoFile": "./dist/.tsbuildinfo",
+        "baseUrl": ".",
+        "paths": {
+            "@tdpokerpro/shared-types": [
+                "../shared-types/src"
+            ],
+            "@tdpokerpro/shared-utils": [
+                "../shared-utils/src"
+            ],
+            "@tdpokerpro/auth-service": [
+                "../auth-service/src"
+            ],
+            "@tdpokerpro/user-service": [
+                "../user-service/src"
+            ],
+            "@tdpokerpro/game-engine-service": [
+                "../game-engine-service/src"
+            ]
+        }
     },
     "references": [
         {
@@ -18,6 +36,9 @@
         },
         {
             "path": "../user-service"
+        },
+        {
+            "path": "../game-engine-service"
         }
     ],
     "include": [

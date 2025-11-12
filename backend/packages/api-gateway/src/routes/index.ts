@@ -5,6 +5,7 @@
 import { Router, Request, Response } from 'express';
 import { createAuthRouter, UserRepository } from '@tdpokerpro/auth-service';
 import { createUserRouter } from '@tdpokerpro/user-service';
+import { createGameEngineRouter } from '@tdpokerpro/game-engine-service';
 import { db } from '../config/database';
 
 const router = Router();
@@ -12,16 +13,10 @@ const router = Router();
 // Initialize repositories
 const userRepository = new UserRepository(db);
 
-// Placeholder for game-engine routes (FASE 5)
-const gameEngineRouter = Router();
-gameEngineRouter.get('/health', (_req: Request, res: Response) => {
-    res.json({ success: true, message: 'Game Engine Service - Coming in FASE 5' });
-});
-
 // Mount service routes
 router.use('/auth', createAuthRouter(userRepository));
 router.use('/users', createUserRouter(db));
-router.use('/game-engine', gameEngineRouter); // FASE 5 placeholder
+router.use('/game-engine', createGameEngineRouter(db)); // FASE 5 - Tournament Management
 
 /**
  * Health check endpoint
@@ -51,8 +46,8 @@ router.get('/', (_req: Request, res: Response) => {
                 health: '/health',
                 auth: '/auth',
                 users: '/users (integrated)',
-                gameEngine: '/game-engine (placeholder - FASE 5)',
-                tournaments: '/tournaments',
+                gameEngine: '/game-engine (integrated - FASE 5)',
+                tournaments: '/game-engine/tournaments (integrated)',
                 games: '/games',
                 social: '/social',
                 payments: '/payments',
@@ -64,9 +59,9 @@ router.get('/', (_req: Request, res: Response) => {
 // Service routes mounted:
 // - /auth: Authentication Service
 // - /users: User Management Service
-// - /game-engine: Game Engine Service (placeholder - FASE 5)
+// - /game-engine: Game Engine Service (FASE 5 - Tournament Management)
+//   - /game-engine/tournaments: CRUD operations
 // TODO: Add remaining service routes
-// router.use('/tournaments', tournamentRoutes);
 // router.use('/games', gameRoutes);
 // router.use('/social', socialRoutes);
 // router.use('/payments', paymentRoutes);

@@ -280,3 +280,119 @@ export interface ErrorResponse {
     };
     timestamp: Date;
 }
+
+// ========================================
+// GAME ENGINE - TOURNAMENT MANAGEMENT DTOs
+// ========================================
+
+export interface CreateTournamentDTO {
+    name: string;
+    game_type: string; // 'NLHE', 'PLO', 'OMAHA'
+    buy_in_cents: number;
+    rake_cents?: number;
+    guarantee_cents?: number;
+    starting_stack: number;
+    seats_per_table?: number;
+    max_tables?: number;
+
+    // Registration Config
+    late_registration_enabled?: boolean;
+    late_registration_end_level?: number;
+    rebuy_enabled?: boolean;
+    rebuy_end_level?: number;
+    addon_enabled?: boolean;
+    addon_level?: number;
+
+    // Blind Schedule
+    blind_schedule: CreateBlindLevelDTO[];
+
+    // Timing
+    scheduled_start_time?: Date;
+}
+
+export interface UpdateTournamentDTO {
+    name?: string;
+    status?: TournamentStatus;
+    guarantee_cents?: number;
+    late_registration_end_level?: number;
+    rebuy_end_level?: number;
+    addon_level?: number;
+}
+
+export interface CreateBlindLevelDTO {
+    level: number;
+    small_blind: number;
+    big_blind: number;
+    antes: number;
+    duration_minutes: number;
+    late_registration_end?: boolean;
+    rebuy_end?: boolean;
+    addon_available?: boolean;
+    is_break?: boolean;
+    break_duration_minutes?: number;
+}
+
+export interface BlindLevelDTO extends CreateBlindLevelDTO {
+    id: string;
+    tournament_id: string;
+}
+
+export interface TournamentDTO {
+    id: string;
+    name: string;
+    game_type: string;
+    status: TournamentStatus;
+
+    buy_in_cents: number;
+    rake_cents: number;
+    guarantee_cents?: number;
+
+    starting_stack: number;
+    seats_per_table: number;
+
+    current_blind_level?: number;
+    current_blind?: BlindLevelDTO;
+    blind_schedule: BlindLevelDTO[];
+
+    created_by: string;
+    created_at: Date;
+    updated_at: Date;
+
+    // Runtime info
+    registered_players_count?: number;
+    active_players_count?: number;
+    tables_count?: number;
+}
+
+export interface TournamentListDTO {
+    id: string;
+    name: string;
+    game_type: string;
+    status: TournamentStatus;
+    buy_in_cents: number;
+    created_by: string;
+    created_at: Date;
+    registered_players_count?: number;
+    active_players_count?: number;
+}
+
+export interface TournamentConfigDTO {
+    buy_in_cents: number;
+    rake_cents: number;
+    guarantee_cents?: number;
+    starting_stack: number;
+    seats_per_table: number;
+
+    late_registration_enabled: boolean;
+    late_registration_end_level?: number;
+    rebuy_enabled: boolean;
+    rebuy_end_level?: number;
+    addon_enabled: boolean;
+    addon_level?: number;
+}
+
+export interface TournamentValidationDTO {
+    valid: boolean;
+    errors: string[];
+    warnings: string[];
+}
