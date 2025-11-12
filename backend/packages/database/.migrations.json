@@ -1,0 +1,12 @@
+{
+    "database-url": {
+        "ENV": "DATABASE_URL"
+    },
+    "migrations-table": "pgmigrations",
+    "dir": "migrations",
+    "check-order": true,
+    "verbose": true,
+    "ignore-pattern": "\\..*",
+    "migration-file-language": "js",
+    "template-file-name": "template.js"
+}
