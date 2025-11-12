@@ -23,8 +23,11 @@ import {
 export interface User {
     id: string;
     email: string;
+    username: string;
+    password_hash: string;
     role: UserRole;
     isActive: boolean;
+    is_active: boolean; // Alias para compatibilidad con DB
     isVerified: boolean;
     lastLoginAt?: Date;
     createdAt: Date;

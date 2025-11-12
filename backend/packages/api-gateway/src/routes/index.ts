@@ -3,8 +3,16 @@
  */
 
 import { Router, Request, Response } from 'express';
+import { createAuthRouter, UserRepository } from '@tdpokerpro/auth-service';
+import { db } from '../config/database';
 
 const router = Router();
+
+// Initialize repositories
+const userRepository = new UserRepository(db);
+
+// Mount auth routes
+router.use('/auth', createAuthRouter(userRepository));
 
 /**
  * Health check endpoint

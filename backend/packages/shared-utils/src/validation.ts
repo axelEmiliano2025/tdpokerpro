@@ -3,6 +3,7 @@
  */
 
 import Joi from 'joi';
+import { ValidationError } from './errors';
 
 // Common validation schemas
 export const schemas = {
@@ -68,18 +69,4 @@ export function validate<T>(
     return value as T;
 }
 
-/**
- * Custom Validation Error
- */
-export class ValidationError extends Error {
-    public details: Array<{ field: string; message: string }>;
-
-    constructor(message: string, details: Array<{ field: string; message: string }>) {
-        super(message);
-        this.name = 'ValidationError';
-        this.details = details;
-        Error.captureStackTrace(this, this.constructor);
-    }
-}
-
-export default { schemas, validate, ValidationError };
+export default { schemas, validate };

@@ -12,9 +12,6 @@
         },
         {
             "path": "../shared-utils"
-        },
-        {
-            "path": "../auth-service"
         }
     ],
     "include": [

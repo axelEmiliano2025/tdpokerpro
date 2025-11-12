@@ -48,6 +48,18 @@ export class ConflictError extends AppError {
 }
 
 /**
+ * Validation Error
+ */
+export class ValidationError extends AppError {
+    constructor(
+        message: string,
+        public details?: Array<{ field: string; message: string }>
+    ) {
+        super(message, 400, 'VALIDATION_ERROR');
+    }
+}
+
+/**
  * Internal Server Error
  */
 export class InternalServerError extends AppError {
@@ -63,5 +75,6 @@ export default {
     ForbiddenError,
     BadRequestError,
     ConflictError,
+    ValidationError,
     InternalServerError,
 };
