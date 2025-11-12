@@ -2,13 +2,19 @@
  * @tdpokerpro/shared-utils
  * 
  * Utilidades compartidas entre todos los servicios
- * 
- * Este workspace contendrá:
- * - Funciones helper
- * - Validadores
- * - Formatters
- * - Constants
  */
 
-// Placeholder - será implementado en FASE 2
-export { };
+// Export logger
+export * from './logger';
+
+// Export validation
+export * from './validation';
+
+// Export errors
+export * from './errors';
+
+// Export constants
+export * from './constants';
+
+// Export helpers
+export * from './helpers';
