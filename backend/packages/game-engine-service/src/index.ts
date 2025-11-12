@@ -18,6 +18,7 @@ import { Knex } from 'knex';
 import { Pool } from 'pg';
 import { createTournamentRoutes } from './routes/tournaments';
 import { createRegistrationRoutes } from './routes/registration';
+import { createSeatingRoutes } from './routes/seating';
 
 export function createGameEngineRouter(db: Knex, pool: Pool): Router {
     const router = Router();
@@ -27,6 +28,9 @@ export function createGameEngineRouter(db: Knex, pool: Pool): Router {
 
     // Mount registration routes
     router.use('/registration', createRegistrationRoutes(db, pool));
+
+    // Mount seating routes
+    router.use('/seating', createSeatingRoutes(pool));
 
     // Health check
     router.get('/health', (_req, res) => {
