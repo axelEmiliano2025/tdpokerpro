@@ -21,3 +21,6 @@ export * from './seating.dtos';
 
 // Export penalty DTOs
 export * from './penalty.dtos';
+
+// Export blind management DTOs
+export * from './blind.dtos';

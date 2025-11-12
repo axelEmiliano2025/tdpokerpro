@@ -20,6 +20,7 @@ import { createTournamentRoutes } from './routes/tournaments';
 import { createRegistrationRoutes } from './routes/registration';
 import { createSeatingRoutes } from './routes/seating';
 import { createPenaltyRoutes } from './routes/penalties';
+import { createBlindManagementRoutes } from './routes/blind-management';
 
 export function createGameEngineRouter(db: Knex, pool: Pool): Router {
     const router = Router();
@@ -35,6 +36,9 @@ export function createGameEngineRouter(db: Knex, pool: Pool): Router {
 
     // Mount penalty routes
     router.use('/penalties', createPenaltyRoutes(pool));
+
+    // Mount blind management routes
+    router.use('/blinds', createBlindManagementRoutes(pool, db));
 
     // Health check
     router.get('/health', (_req, res) => {
