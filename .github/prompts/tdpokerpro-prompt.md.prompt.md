@@ -5,7 +5,7 @@ mode: agent
 ## TDPokerPro Platform - Instrucciones del Sistema
 
 ---
-# SYSTEM PROMPT PARA AI AGENT EN VS CODE
+
 ## TDPokerPro Platform - Instrucciones del Sistema
 
 ---
