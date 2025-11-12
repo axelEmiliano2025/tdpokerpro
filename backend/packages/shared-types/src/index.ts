@@ -18,3 +18,6 @@ export * from './registration.dtos';
 
 // Export seating DTOs
 export * from './seating.dtos';
+
+// Export penalty DTOs
+export * from './penalty.dtos';
