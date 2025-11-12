@@ -350,6 +350,14 @@ export interface TournamentDTO {
     starting_stack: number;
     seats_per_table: number;
 
+    // Tournament options
+    late_registration_enabled: boolean;
+    late_registration_end_level?: number;
+    rebuy_enabled: boolean;
+    rebuy_end_level?: number;
+    addon_enabled: boolean;
+    addon_level?: number;
+
     current_blind_level?: number;
     current_blind?: BlindLevelDTO;
     blind_schedule: BlindLevelDTO[];

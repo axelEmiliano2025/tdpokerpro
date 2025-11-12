@@ -12,3 +12,6 @@ export * from './entities';
 
 // Export all DTOs
 export * from './dtos';
+
+// Export registration DTOs
+export * from './registration.dtos';

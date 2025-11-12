@@ -97,3 +97,20 @@ export enum PaymentGateway {
     PIX = 'pix',
     CASH = 'cash',
 }
+
+// Entry Type (TDA Rule 8 & 27 - Multiple entries)
+export enum EntryType {
+    INITIAL = 'initial',
+    LATE_REG = 'late_reg',
+    REBUY = 'rebuy',
+    REENTRY = 'reentry',
+    ADDON = 'addon',
+}
+
+// Entry Status
+export enum EntryStatus {
+    REGISTERED = 'REGISTERED',
+    ACTIVE = 'ACTIVE',
+    ELIMINATED = 'ELIMINATED',
+    PAID_OUT = 'PAID_OUT',
+}
