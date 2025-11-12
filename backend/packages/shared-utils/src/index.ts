@@ -21,3 +21,6 @@ export * from './helpers';
 
 // TDA Utilities
 export * from './tda';
+
+// Event Bus
+export * from './event-bus';

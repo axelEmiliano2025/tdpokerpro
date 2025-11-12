@@ -1,5 +1,1 @@
-// Migration exports
-// Placeholder for migration imports
-// TypeORM will auto-discover .ts files
-
-export { };
+export { CreateUsersTable1699999999001 } from './001_create_users_table';
