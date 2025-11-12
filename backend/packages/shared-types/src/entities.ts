@@ -73,6 +73,24 @@ export interface UserWallet {
     updatedAt: Date;
 }
 
+export interface UserStats {
+    id: string;
+    userId: string;
+    totalTournaments: number;
+    tournamentsWon: number;
+    totalGames: number;
+    gamesWon: number;
+    totalHands: number;
+    handsWon: number;
+    biggestWin: number;
+    totalWinnings: number;
+    totalBuyIns: number;
+    roi: number;
+    avgFinishPosition: number;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
 // ========================================
 // TOURNAMENT ENTITIES
 // ========================================

@@ -4,6 +4,7 @@
 
 import { Router, Request, Response } from 'express';
 import { createAuthRouter, UserRepository } from '@tdpokerpro/auth-service';
+import { createUserRouter } from '@tdpokerpro/user-service';
 import { db } from '../config/database';
 
 const router = Router();
@@ -11,8 +12,9 @@ const router = Router();
 // Initialize repositories
 const userRepository = new UserRepository(db);
 
-// Mount auth routes
+// Mount service routes
 router.use('/auth', createAuthRouter(userRepository));
+router.use('/users', createUserRouter(db));
 
 /**
  * Health check endpoint
@@ -41,7 +43,7 @@ router.get('/', (_req: Request, res: Response) => {
             endpoints: {
                 health: '/health',
                 auth: '/auth',
-                users: '/users',
+                users: '/users (integrated)',
                 tournaments: '/tournaments',
                 games: '/games',
                 social: '/social',
@@ -51,9 +53,10 @@ router.get('/', (_req: Request, res: Response) => {
     });
 });
 
-// TODO: Add service-specific routes
-// router.use('/auth', authRoutes);
-// router.use('/users', userRoutes);
+// Service routes mounted:
+// - /auth: Authentication Service
+// - /users: User Management Service
+// TODO: Add remaining service routes
 // router.use('/tournaments', tournamentRoutes);
 // router.use('/games', gameRoutes);
 // router.use('/social', socialRoutes);
