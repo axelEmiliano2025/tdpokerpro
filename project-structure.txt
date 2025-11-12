@@ -1,0 +1,47 @@
+.
+├── backend
+│   ├── dist
+│   ├── package.json
+│   ├── packages
+│   │   ├── api-gateway
+│   │   ├── auth-service
+│   │   ├── database
+│   │   ├── game-engine-service
+│   │   ├── notification-service
+│   │   ├── payment-service
+│   │   ├── shared-types
+│   │   ├── shared-utils
+│   │   ├── social-service
+│   │   └── user-service
+│   ├── README.md
+│   ├── tsconfig.json
+│   └── yarn.lock
+├── docker-compose.dev.yml
+├── docs
+│   ├── api
+│   ├── architecture
+│   │   └── database-schema.md
+│   ├── FASE_0_COMPLETADA.md
+│   ├── FASE_1_COMPLETADA.md
+│   ├── guides
+│   └── README.md
+├── frontend
+│   ├── lib
+│   └── README.md
+├── infrastructure
+│   ├── ci-cd
+│   ├── docker
+│   ├── kubernetes
+│   └── README.md
+├── project-structure.txt
+├── README.md
+├── scripts
+│   └── README.md
+├── TDPokerPro_checklist.md
+├── TDPokerPro_construction_guide.md
+├── TDPokerPro_features_complete.md
+├── TDPokerPro_integration_map.md
+├── TDPokerPro_README_START_HERE.md
+└── TDPokerPro_system_prompt.md
+
+25 directories, 20 files
