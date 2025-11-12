@@ -18,3 +18,6 @@ export * from './constants';
 
 // Export helpers
 export * from './helpers';
+
+// TDA Utilities
+export * from './tda';

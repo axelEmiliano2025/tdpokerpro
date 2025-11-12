@@ -12,9 +12,16 @@ const router = Router();
 // Initialize repositories
 const userRepository = new UserRepository(db);
 
+// Placeholder for game-engine routes (FASE 5)
+const gameEngineRouter = Router();
+gameEngineRouter.get('/health', (_req: Request, res: Response) => {
+    res.json({ success: true, message: 'Game Engine Service - Coming in FASE 5' });
+});
+
 // Mount service routes
 router.use('/auth', createAuthRouter(userRepository));
 router.use('/users', createUserRouter(db));
+router.use('/game-engine', gameEngineRouter); // FASE 5 placeholder
 
 /**
  * Health check endpoint
@@ -44,6 +51,7 @@ router.get('/', (_req: Request, res: Response) => {
                 health: '/health',
                 auth: '/auth',
                 users: '/users (integrated)',
+                gameEngine: '/game-engine (placeholder - FASE 5)',
                 tournaments: '/tournaments',
                 games: '/games',
                 social: '/social',
@@ -56,6 +64,7 @@ router.get('/', (_req: Request, res: Response) => {
 // Service routes mounted:
 // - /auth: Authentication Service
 // - /users: User Management Service
+// - /game-engine: Game Engine Service (placeholder - FASE 5)
 // TODO: Add remaining service routes
 // router.use('/tournaments', tournamentRoutes);
 // router.use('/games', gameRoutes);

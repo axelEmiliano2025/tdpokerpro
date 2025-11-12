@@ -12,9 +12,6 @@
             ],
             "@tdpokerpro/shared-utils": [
                 "../shared-utils/src"
-            ],
-            "@tdpokerpro/auth-service": [
-                "../auth-service/src"
             ]
         }
     },
@@ -24,9 +21,6 @@
         },
         {
             "path": "../shared-utils"
-        },
-        {
-            "path": "../auth-service"
         }
     ],
     "include": [
