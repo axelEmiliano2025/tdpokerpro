@@ -1,49 +1,18 @@
-/**
- * @tdpokerpro/game-engine-service
- * 
- * Motor de juegos - Lógica de torneos y cash games
- * 
- * Responsabilidades:
- * - Tournament engine
- * - Cash game engine
- * - Table management
- * - Blind structure calculator
- * - Hand evaluator
- * - Chip tracking
- * - Prize distribution
- */
+export { AppModule } from './app.module';
+export { TournamentModule } from './tournament.module';
+export { BlindModule } from './blind.module';
+export { SeatingModule } from './seating.module';
+export { PenaltyModule } from './penalty.module';
+export { RegistrationModule } from './registration.module';
 
-import { Router } from 'express';
-import { Knex } from 'knex';
-import { Pool } from 'pg';
-import { createTournamentRoutes } from './routes/tournaments';
-import { createRegistrationRoutes } from './routes/registration';
-import { createSeatingRoutes } from './routes/seating';
-import { createPenaltyRoutes } from './routes/penalties';
-import { createBlindManagementRoutes } from './routes/blind-management';
+export { TournamentService } from './services/tournament.service';
+export { BlindService } from './services/blind.service';
+export { SeatingService } from './services/seating.service';
+export { PenaltyService } from './services/penalty.service';
+export { RegistrationService } from './services/registration.service';
 
-export function createGameEngineRouter(db: Knex, pool: Pool): Router {
-    const router = Router();
-
-    // Mount tournament routes
-    router.use('/tournaments', createTournamentRoutes(db));
-
-    // Mount registration routes
-    router.use('/registration', createRegistrationRoutes(db, pool));
-
-    // Mount seating routes
-    router.use('/seating', createSeatingRoutes(pool));
-
-    // Mount penalty routes
-    router.use('/penalties', createPenaltyRoutes(pool));
-
-    // Mount blind management routes
-    router.use('/blinds', createBlindManagementRoutes(pool, db));
-
-    // Health check
-    router.get('/health', (_req, res) => {
-        res.json({ success: true, service: 'game-engine-service', status: 'ok' });
-    });
-
-    return router;
-}
+export { TournamentController } from './controllers/tournament.controller';
+export { BlindController } from './controllers/blind.controller';
+export { SeatingController } from './controllers/seating.controller';
+export { PenaltyController } from './controllers/penalty.controller';
+export { RegistrationController } from './controllers/registration.controller';
