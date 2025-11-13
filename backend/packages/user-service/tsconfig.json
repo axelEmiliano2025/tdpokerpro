@@ -7,6 +7,9 @@
         "tsBuildInfoFile": "./dist/.tsbuildinfo",
         "baseUrl": ".",
         "paths": {
+            "@tdpokerpro/database": [
+                "../database/src"
+            ],
             "@tdpokerpro/shared-types": [
                 "../shared-types/src"
             ],
@@ -19,6 +22,9 @@
         }
     },
     "references": [
+        {
+            "path": "../database"
+        },
         {
             "path": "../shared-types"
         },
@@ -34,6 +40,8 @@
     ],
     "exclude": [
         "node_modules",
-        "dist"
+        "dist",
+        "**/*.old",
+        "src/**/*.old"
     ]
 }

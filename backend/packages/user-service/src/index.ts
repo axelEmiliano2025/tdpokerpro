@@ -1,6 +1,4 @@
-export * from './repositories/UserProfileRepository';
-export * from './repositories/UserWalletRepository';
-export * from './repositories/UserStatsRepository';
-export * from './services/UserService';
-export * from './controllers/UserController';
-export * from './routes/user.routes';
+// NestJS exports
+export * from './app.module';
+export * from './user.module';
+export * from './services/user.service';
