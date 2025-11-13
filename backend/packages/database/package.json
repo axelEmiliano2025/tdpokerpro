@@ -4,14 +4,14 @@
     "description": "TDPokerPro Database - Migrations, schemas and seeds",
     "private": true,
     "scripts": {
+        "build": "tsc",
         "migrate:create": "node-pg-migrate create --migrations-dir migrations",
         "migrate:up": "node-pg-migrate up --migrations-dir migrations",
         "migrate:down": "node-pg-migrate down --migrations-dir migrations",
         "migrate:redo": "node-pg-migrate redo --migrations-dir migrations",
         "seed": "node scripts/seed.js",
         "db:reset": "node-pg-migrate down 0 --migrations-dir migrations && node-pg-migrate up --migrations-dir migrations && yarn seed",
-        "db:status": "node scripts/db-status.js",
-        "build": "echo 'No build required for database package'"
+        "db:status": "node scripts/db-status.js"
     },
     "dependencies": {
         "@nestjs/typeorm": "^11.0.0",
