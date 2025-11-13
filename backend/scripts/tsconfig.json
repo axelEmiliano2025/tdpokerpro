@@ -1,0 +1,41 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES2020",
+        "outDir": "./dist",
+        "rootDir": ".",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "baseUrl": "..",
+        "paths": {
+            "@tdpokerpro/database": [
+                "packages/database/src"
+            ],
+            "@tdpokerpro/database/*": [
+                "packages/database/src/*"
+            ],
+            "@tdpokerpro/shared-types": [
+                "packages/shared-types/src"
+            ],
+            "@tdpokerpro/shared-types/*": [
+                "packages/shared-types/src/*"
+            ],
+            "@tdpokerpro/shared-utils": [
+                "packages/shared-utils/src"
+            ],
+            "@tdpokerpro/shared-utils/*": [
+                "packages/shared-utils/src/*"
+            ]
+        }
+    },
+    "include": [
+        "./**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
