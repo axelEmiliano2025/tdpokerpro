@@ -9,3 +9,8 @@ export { PlayerEntry } from './PlayerEntry';
 export { Penalty } from './Penalty';
 export { SeatingAssignment } from './SeatingAssignment';
 export { BlindTracking } from './BlindTracking';
+export { PlayerStatistics } from './PlayerStatistics';
+export { TournamentStatistics } from './TournamentStatistics';
+export { AuditLog } from './AuditLog';
+export { UserPreferences } from './UserPreferences';
+export { EventLog } from './EventLog';
