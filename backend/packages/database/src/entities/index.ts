@@ -4,3 +4,8 @@ export { Post } from './Post';
 export { Follow } from './Follow';
 export { Comment } from './Comment';
 export { Like } from './Like';
+export { BlindSchedule } from './BlindSchedule';
+export { PlayerEntry } from './PlayerEntry';
+export { Penalty } from './Penalty';
+export { SeatingAssignment } from './SeatingAssignment';
+export { BlindTracking } from './BlindTracking';
