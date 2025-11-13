@@ -4,7 +4,6 @@
         "module": "commonjs",
         "target": "ES2020",
         "outDir": "./dist",
-        "rootDir": ".",
         "esModuleInterop": true,
         "skipLibCheck": true,
         "resolveJsonModule": true,
@@ -32,7 +31,8 @@
         }
     },
     "include": [
-        "./**/*.ts"
+        "./**/*.ts",
+        "../packages/**/*.ts"
     ],
     "exclude": [
         "node_modules",

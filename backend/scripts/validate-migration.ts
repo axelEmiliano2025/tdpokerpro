@@ -67,7 +67,7 @@ async function validateForeignKeys() {
 
     try {
         // Get sample entries and verify relationships load
-        const entries = await entryRepo.findAll({}, { createdAt: 'DESC' }, ['player', 'tournament'], 5);
+        const entries = await entryRepo.findAll({}, { createdAt: 'DESC' }, { player: true, tournament: true }, 5);
 
         let validPlayerRefs = 0;
         let validTournamentRefs = 0;
@@ -75,9 +75,7 @@ async function validateForeignKeys() {
         for (const entry of entries) {
             if (entry.player) validPlayerRefs++;
             if (entry.tournament) validTournamentRefs++;
-        }
-
-        console.log(`   PlayerEntry → User: ${validPlayerRefs}/${entries.length}`);
+        } console.log(`   PlayerEntry → User: ${validPlayerRefs}/${entries.length}`);
         console.log(`   PlayerEntry → Tournament: ${validTournamentRefs}/${entries.length}`);
 
         results.push({
@@ -110,7 +108,7 @@ async function validateDataTypes() {
     const userRepo = new UserRepository();
 
     try {
-        const users = await userRepo.findAll({}, {}, [], 5);
+        const users = await userRepo.findAll({}, {}, {}, 5);
 
         if (users.length > 0) {
             for (const u of users) {
@@ -118,9 +116,7 @@ async function validateDataTypes() {
                 console.log(`     - email: ${typeof u.email} (expected: string)`);
                 console.log(`     - role: ${typeof u.role} (expected: string)`);
                 console.log(`     - followersCount: ${typeof u.followersCount} (expected: number)`);
-            }
-
-            results.push({
+            } results.push({
                 check: 'Data types validation',
                 expected: 1,
                 actual: 1,
@@ -153,19 +149,17 @@ async function validateRepositoryQueries() {
 
     try {
         // Test findByUsername
-        const users = await userRepo.findAll({}, {}, [], 1);
-        if (users.length > 0) {
+        const users = await userRepo.findAll({}, {}, {}, 1);
+        if (users.length > 0 && users[0]) {
             const user = await userRepo.findByUsername(users[0].username);
             console.log(`   ✅ findByUsername: ${user ? 'PASS' : 'FAIL'}`);
         }
 
         // Test findByEmail
-        if (users.length > 0) {
+        if (users.length > 0 && users[0]) {
             const user = await userRepo.findByEmail(users[0].email);
             console.log(`   ✅ findByEmail: ${user ? 'PASS' : 'FAIL'}`);
-        }
-
-        // Test findTournamentDirectors
+        }        // Test findTournamentDirectors
         const tds = await userRepo.findTournamentDirectors();
         console.log(`   ✅ findTournamentDirectors: ${tds.length} TDs found`); results.push({
             check: 'Repository queries',
