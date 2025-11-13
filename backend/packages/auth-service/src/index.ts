@@ -1,12 +1,9 @@
 /**
- * Auth Service Entry Point
+ * Auth Service Entry Point (NestJS)
  */
 
-export { AuthService } from './services/AuthService';
-export { AuthController } from './controllers/AuthController';
-export { UserRepository } from './repositories/UserRepository';
-export { authenticateToken, authorizeRoles, optionalAuth } from './middleware/auth';
-export { createAuthRouter } from './routes/auth.routes';
-
-export type { RegisterData, LoginData, AuthTokens, TokenPayload } from './services/AuthService';
-export type { AuthRequest } from './middleware/auth';
+// NestJS exports
+export * from './app.module';
+export * from './auth.module';
+export * from './services/auth.service';
+export * from './strategies/jwt.strategy';

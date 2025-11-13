@@ -4,9 +4,24 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "composite": true,
-        "tsBuildInfoFile": "./dist/.tsbuildinfo"
+        "tsBuildInfoFile": "./dist/.tsbuildinfo",
+        "baseUrl": ".",
+        "paths": {
+            "@tdpokerpro/database": [
+                "../database/src"
+            ],
+            "@tdpokerpro/shared-types": [
+                "../shared-types/src"
+            ],
+            "@tdpokerpro/shared-utils": [
+                "../shared-utils/src"
+            ]
+        }
     },
     "references": [
+        {
+            "path": "../database"
+        },
         {
             "path": "../shared-types"
         },
@@ -19,6 +34,8 @@
     ],
     "exclude": [
         "node_modules",
-        "dist"
+        "dist",
+        "**/*.old",
+        "src/**/*.old"
     ]
 }
